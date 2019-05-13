@@ -41,7 +41,7 @@ colors = {
 }
 
 app.layout = html.Div(style={'backgroundColor': colors['background']}, children=[
-    html.H1(children='CS410 Project PubMed Search ',
+    html.H1(children='PubText: A PubMed Text Search Tool Documentation',
     style={
             'textAlign': 'center',
             'color': colors['text']
@@ -64,7 +64,7 @@ app.layout = html.Div(style={'backgroundColor': colors['background']}, children=
         } ),
     html.P([
         'Keyword Frequency Search: ',
-        dcc.Input(value='Vancomycin', type='text',id='tf-text-id',
+        dcc.Input(value='Genes', type='text',id='tf-text-id',
 
             style={
                 'textAlign': 'center',
@@ -121,7 +121,7 @@ app.layout = html.Div(style={'backgroundColor': colors['background']}, children=
 
 
 # This is the call back  that gets called when the search button is submitted.
-# The results are cached in the hidden div 
+# The results are cached in the hidden div
 @app.callback(Output('intermediate-value', 'children'),
               [Input('search-button', 'n_clicks')],
               [State('query-text-id', 'value'),
@@ -224,7 +224,7 @@ def update_histogram(json_data):
     [Input('search-output-scatter', 'clickData')],
     [State('intermediate-value', 'children')])
 def update_output_div(clickData, json_data):
-   
+
 
     try:
         link = clickData['points'][0]['text']
@@ -233,7 +233,7 @@ def update_output_div(clickData, json_data):
         print (link)
         print (dff)
         abstract = dff[link]
- 
+
         #abstract=dff.loc[dff['links'] == link, 'abstracts'].iloc[0]
     except BaseException as e:
         abstract = str(e)
