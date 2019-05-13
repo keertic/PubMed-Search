@@ -1,0 +1,30 @@
+prefix = "."
+stop-words = "lemur_stopwords.txt"
+
+dataset = "abstractText"
+corpus = "line.toml"
+index = "idx"
+
+base-url="https://www.ncbi.nlm.nih.gov"
+pubmed-url="https://www.ncbi.nlm.nih.gov/pubmed/?term="
+term="antibiotic+resistance"
+term-stop-words = "antibiotics_stopwords.txt"
+page-limit=2
+extract-file ="abstract.dat"
+
+query-judgements = "abstract.txt"
+
+[[analyzers]]
+method = "ngram-word"
+ngram = 1
+filter = "default-unigram-chain"
+
+[[query-runner]]
+query-path = "abstract.txt"
+query-id-start = 1
+
+
+
+
+
+
